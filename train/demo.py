@@ -14,7 +14,8 @@ num_layers = 2  # LSTM 层数
 output_size = 2  # 输出同样是成交量和收盘指数
 seq_length = 30  # 输入序列长度
 num_epochs = 100  # 训练轮数
-learning_rate = 0.001
+learning_rate = 0.001 # 学习率
+num_dummy_samples = 1000 # dummy 数据集样本数
 
 
 # 定义基于 LSTM 的预测模型
@@ -60,7 +61,7 @@ def generate_dummy_data(num_samples=1000):
 
 
 # 准备数据
-X, y = generate_dummy_data(num_samples=1000)
+X, y = generate_dummy_data(num_samples=num_dummy_samples)
 X = torch.tensor(X, dtype=torch.float32)
 y = torch.tensor(y, dtype=torch.float32)
 
